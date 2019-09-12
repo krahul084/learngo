@@ -9,7 +9,10 @@ import (
 
 func main() {
 	arg := os.Args[1]
-	heatCelcius, _ := strconv.ParseFloat(arg, 64)
+	heatCelcius, err := strconv.ParseFloat(arg, 64)
+	if err != nil {
+		fmt.Println(err)
+	}
 	heatFarenheit := (heatCelcius*(9/5.) + 32)
 	name := "Hello"
 	fmt.Printf("Celcius value %g in Farenheit is %g\n", heatCelcius, heatFarenheit)
